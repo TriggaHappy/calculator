@@ -13,3 +13,21 @@ Must have:
 - Button for 'Reset'
 - display of numbers, intermediate sum and end sum
 - continuation of calculating after intermediate and end sum
+
+function numberadd(number - click event){
+current += previous
+}
+
+function clickOperant(operator - click event){
+previous += current
+current ''
+operator = operator
+
+}
+
+function solve(){
+let result ... =
+current = result
+if / else statements
+USE PARSEFLOAT / Number function
+}
