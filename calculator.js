@@ -30,10 +30,13 @@ function keepCalculating() {
   previousOperand = result;
 }
 
+function updateDisplay(content) {}
+
 //first number
 numbers.forEach(btn => {
   btn.addEventListener('click', () => {
     clickNumber(btn.textContent);
+    updateDisplay(btn.textContent);
   });
 });
 
@@ -52,22 +55,29 @@ document.querySelector('[solve]').addEventListener('click', function () {
   if (operator === '+') {
     result = Number(previousOperand) + Number(currentOperand);
     keepCalculating();
+    display.textContent = result;
   } else if (operator === '-') {
     result = Number(previousOperand) - Number(currentOperand);
     keepCalculating();
+    display.textContent = result;
   } else if (operator === '/') {
     if (currentOperand > 0) {
-      result = Number(previousOperand) / Number(currentOperand);
+      let intermediateResult = Number(previousOperand) / Number(currentOperand);
+      result = intermediateResult.toFixed(2);
       keepCalculating();
+      display.textContent = result;
     } else {
       display.textContent = 'You Idiot!';
+      reset();
     }
   } else if (operator === '*') {
     result = Number(previousOperand) * Number(currentOperand);
     keepCalculating();
+    display.textContent = result;
   } else if (operator === 'x²') {
     result = Number(previousOperand) ** 2;
     keepCalculating();
+    display.textContent = result;
   }
   console.log(result);
   //console.log(previousOperand, currentOperand);
