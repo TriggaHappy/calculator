@@ -5,23 +5,42 @@ let currentOperand = '';
 let previousOperand = '';
 let operator = '';
 let result = '';
-const buttons = document.querySelectorAll('[btn-number]');
+const numbers = document.querySelectorAll('[btn-number]');
 const operators = document.querySelectorAll('[operator]');
 const display = document.getElementById('display');
 
+function clickNumber(number) {
+  currentOperand += number;
+}
+
+function clickOperator(operatorInput) {
+  operator += operatorInput;
+}
+
+function reset() {
+  currentOperand = '';
+  previousOperand = '';
+  operator = '';
+  result = '';
+}
+
+function keepCalculating() {
+  currentOperand = '';
+  operator = '';
+  previousOperand = result;
+}
+
 //first number
-buttons.forEach(btn => {
+numbers.forEach(btn => {
   btn.addEventListener('click', () => {
-    currentOperand += btn.textContent;
-    operator = '';
+    clickNumber(btn.textContent);
   });
 });
 
 //operator
 operators.forEach(btn => {
   btn.addEventListener('click', () => {
-    operator += btn.textContent;
-    previousOperand += operator;
+    clickOperator(btn.textContent);
     previousOperand += currentOperand;
     currentOperand = '';
     //console.log(previousOperand);
@@ -30,13 +49,31 @@ operators.forEach(btn => {
 
 //solve function
 document.querySelector('[solve]').addEventListener('click', function () {
-  previousOperand += currentOperand;
-  console.log(previousOperand);
+  if (operator === '+') {
+    result = Number(previousOperand) + Number(currentOperand);
+    keepCalculating();
+  } else if (operator === '-') {
+    result = Number(previousOperand) - Number(currentOperand);
+    keepCalculating();
+  } else if (operator === '/') {
+    if (currentOperand > 0) {
+      result = Number(previousOperand) / Number(currentOperand);
+      keepCalculating();
+    } else {
+      display.textContent = 'You Idiot!';
+    }
+  } else if (operator === '*') {
+    result = Number(previousOperand) * Number(currentOperand);
+    keepCalculating();
+  } else if (operator === 'x²') {
+    result = Number(previousOperand) ** 2;
+    keepCalculating();
+  }
+  console.log(result);
+  //console.log(previousOperand, currentOperand);
 });
 
 //clear function
 document.querySelector('[reset]').addEventListener('click', function () {
-  currentOperand = '';
-  previousOperand = '';
-  operator = '';
+  reset();
 });
