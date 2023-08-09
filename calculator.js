@@ -9,14 +9,16 @@ const numbers = document.querySelectorAll('[btn-number]');
 const operators = document.querySelectorAll('[operator]');
 const display = document.getElementById('display');
 const deleteButton = document.querySelector('[delete]');
+const dot = document.querySelector('[dot]');
+display.textContent = '0';
 
 function clickNumber(number) {
   currentOperand += number;
-  display.textContent = number;
+  display.textContent = currentOperand;
 }
 
 function clickOperator(operatorInput) {
-  operator += operatorInput;
+  operator = operatorInput;
 }
 
 function reset() {
@@ -32,6 +34,10 @@ function keepCalculating() {
   previousOperand = result;
 }
 
+function comma() {
+  currentOperand += '.';
+}
+
 //first number
 numbers.forEach(btn => {
   btn.addEventListener('click', () => {
@@ -42,11 +48,16 @@ numbers.forEach(btn => {
 //operator
 operators.forEach(btn => {
   btn.addEventListener('click', () => {
+    if (operator === '') {
+      previousOperand += currentOperand;
+      currentOperand = '';
+    }
     clickOperator(btn.textContent);
-    previousOperand += currentOperand;
-    currentOperand = '';
-    //console.log(previousOperand);
   });
+});
+
+dot.addEventListener('click', () => {
+  console.log(currentOperand);
 });
 
 //solve function
@@ -61,8 +72,7 @@ document.querySelector('[solve]').addEventListener('click', function () {
     display.textContent = result;
   } else if (operator === '/') {
     if (currentOperand > 0) {
-      let intermediateResult = Number(previousOperand) / Number(currentOperand);
-      result = intermediateResult.toFixed(2);
+      result = Number(previousOperand) / Number(currentOperand);
       keepCalculating();
       display.textContent = result;
     } else {
