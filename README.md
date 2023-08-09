@@ -15,7 +15,7 @@ Must have:
 - continuation of calculating after intermediate and end sum
 
 function numberadd(number - click event){
-current += previous
+current += number
 }
 
 function clickOperant(operator - click event){
@@ -31,3 +31,12 @@ current = result
 if / else statements
 USE PARSEFLOAT / Number function
 }
+
+things to fix
+
+- replace operator
+- display numbers with 2 or more digits
+
+add
+
+- decimal numbers
