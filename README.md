@@ -32,11 +32,6 @@ if / else statements
 USE PARSEFLOAT / Number function
 }
 
-things to fix
+add / complete
 
-- replace operator
-- display numbers with 2 or more digits
-
-add
-
-- decimal numbers
+- delete button
