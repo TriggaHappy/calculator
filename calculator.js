@@ -8,9 +8,11 @@ let result = '';
 const numbers = document.querySelectorAll('[btn-number]');
 const operators = document.querySelectorAll('[operator]');
 const display = document.getElementById('display');
+const deleteButton = document.querySelector('[delete]');
 
 function clickNumber(number) {
   currentOperand += number;
+  display.textContent = number;
 }
 
 function clickOperator(operatorInput) {
@@ -30,13 +32,10 @@ function keepCalculating() {
   previousOperand = result;
 }
 
-function updateDisplay(content) {}
-
 //first number
 numbers.forEach(btn => {
   btn.addEventListener('click', () => {
     clickNumber(btn.textContent);
-    updateDisplay(btn.textContent);
   });
 });
 
@@ -86,4 +85,5 @@ document.querySelector('[solve]').addEventListener('click', function () {
 //clear function
 document.querySelector('[reset]').addEventListener('click', function () {
   reset();
+  display.textContent = '0';
 });
