@@ -10,7 +10,6 @@ const operators = document.querySelectorAll('[operator]');
 const display = document.getElementById('display');
 const deleteButton = document.querySelector('[delete]');
 const dot = document.querySelector('[dot]');
-display.textContent = '0';
 
 function clickNumber(number) {
   currentOperand += number;
@@ -38,6 +37,11 @@ function comma() {
   currentOperand += '.';
 }
 
+// function backspace() {
+//   currentOperand.slice(0, -1);
+//   display.textContent.slice(0, -1);
+// }
+
 //first number
 numbers.forEach(btn => {
   btn.addEventListener('click', () => {
@@ -57,8 +61,12 @@ operators.forEach(btn => {
 });
 
 dot.addEventListener('click', () => {
-  console.log(currentOperand);
+  comma();
 });
+
+// deleteButton.addEventListener('click', () => {
+//   backspace();
+// });
 
 //solve function
 document.querySelector('[solve]').addEventListener('click', function () {
