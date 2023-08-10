@@ -36,4 +36,8 @@ tasks:
 
 add / complete
 
-- delete button
+-
+
+bugfixes
+
+- after calculation "delete" doesn't work properly
