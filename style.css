@@ -1,0 +1,58 @@
+.wrapper {
+  display: grid;
+  height: 600px;
+  grid-template-rows: 100px 100fr;
+  grid-template-columns: 1fr;
+}
+
+.buttons {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.container {
+  width: 400px;
+
+  height: 600px;
+
+  border: 1px solid black;
+
+  margin: 0 auto;
+}
+
+.display {
+  background: #363e45;
+
+  grid-column: 1/2;
+  color: white;
+  display: block;
+  text-align: end;
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+.span-two {
+  grid-column: span 2;
+}
+
+.btnr1 {
+  background: rgba(33, 209, 171, 0.814);
+  text-align: center;
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+.btnr2 {
+  background: #585d65;
+  font-weight: bold;
+  font-size: large;
+  color: aqua;
+  text-align: center;
+}
+
+.solve {
+  background: rgb(201, 37, 103);
+
+  text-align: center;
+}
