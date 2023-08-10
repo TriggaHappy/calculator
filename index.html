@@ -4,34 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="calculator.js" defer></script>
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <title>calculator js</title>
   </head>
   <body>
-    <div>
-      <div class="keys">
-        <div class="numbers">
-          <button btn-number id="0">0</button>
-          <button btn-number id="1">1</button>
-          <button btn-number id="2">2</button>
-          <button btn-number id="3">3</button>
-          <button btn-number id="4">4</button>
-          <button btn-number id="5">5</button>
-          <button btn-number id="6">6</button>
-          <button btn-number id="7">7</button>
-          <button btn-number id="8">8</button>
-          <button btn-number id="9">9</button>
-        </div>
-        <div class="operator">
-          <button operator>+</button>
-          <button operator>-</button>
-          <button operator>/</button>
-          <button operator>*</button>
-          <button operator>x²</button>
-          <button dot>,</button>
-          <button reset>AC</button>
-          <button solve>=</button>
-          <button delete>DEL</button>
-          <div class="display" id="display">0</div>
+    <div class="container">
+      <div class="wrapper">
+        <div class="display" id="display">0</div>
+        <div class="buttons">
+          <button class="btnr2" reset>AC</button>
+          <button class="operator btnr2" operator>x²</button>
+          <button class="span-two btnr2" delete>DEL</button>
+          <button class="operator btnr2" operator>+</button>
+          <button class="operator btnr2" operator>-</button>
+          <button class="operator btnr2" operator>/</button>
+          <button class="operator btnr2" operator>*</button>
+          <button btn-number class="btnr1">8</button>
+          <button btn-number class="btnr1">7</button>
+          <button btn-number class="btnr1">9</button>
+          <button class="operator btnr2" operator>Placeholder</button>
+          <button btn-number class="btnr1">4</button>
+          <button btn-number class="btnr1">5</button>
+          <button btn-number class="btnr1">6</button>
+          <button class="operator btnr2" operator>Placeholder</button>
+          <button btn-number class="btnr1">1</button>
+          <button btn-number class="btnr1">2</button>
+          <button btn-number class="btnr1">3</button>
+          <button class="operator btnr2" operator>Placeholder</button>
+          <button btn-number class="btnr1 span-two">0</button>
+          <button class="btnr2" dot>,</button>
+          <button class="solve" solve>=</button>
         </div>
       </div>
     </div>
