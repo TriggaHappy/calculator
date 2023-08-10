@@ -37,10 +37,13 @@ function comma() {
   currentOperand += '.';
 }
 
-// function backspace() {
-//   currentOperand.slice(0, -1);
-//   display.textContent.slice(0, -1);
-// }
+function backspace() {
+  currentOperand = currentOperand.slice(0, -1);
+  display.textContent = currentOperand;
+  if (currentOperand === '') {
+    display.textContent = '0';
+  }
+}
 
 //first number
 numbers.forEach(btn => {
@@ -64,9 +67,9 @@ dot.addEventListener('click', () => {
   comma();
 });
 
-// deleteButton.addEventListener('click', () => {
-//   backspace();
-// });
+deleteButton.addEventListener('click', () => {
+  backspace();
+});
 
 //solve function
 document.querySelector('[solve]').addEventListener('click', function () {
